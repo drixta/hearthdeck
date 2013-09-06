@@ -1,4 +1,4 @@
-window.Deck = new Backbone.Model.extend({
+window.Deck = Backbone.Model.extend({
 	urlRoot: '/decks',
 	idAttribute: '_id'
 	defaults: {
@@ -10,7 +10,7 @@ window.Deck = new Backbone.Model.extend({
 	} 
 });
 
-window.Decks = new Backbone.Collection.extend({
+window.Decks = Backbone.Collection.extend({
 	model: Deck,
 	url: "/decks"
 });

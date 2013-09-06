@@ -32,15 +32,14 @@ exports.findAllEquipments = function(req,res){
 	}
 	res.send(equipments);
 };
-
+*/
 exports.findAllClasscards = function(req,res){
 	var heroclass =[];
 	classname = req.params.heroclass
 	for (i = 0; i < schema.length; i++){
-		if (schema[i]["Class"].toLowerCase() == classname.toLowerCase()){
+		if ((schema[i]["Class"].toLowerCase() == classname.toLowerCase()) || schema[i]["Class"].toLowerCase() == "any"){
 			heroclass.push(schema[i]);
 		}
 	}
 	res.send(heroclass);
 };
-*/

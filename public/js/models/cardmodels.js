@@ -1,17 +1,8 @@
-window.Card = new Backbone.Model.extend({
-	urlRoot = "/cards",
-	defaults: {
-		"Name": "",
-		"Rarity": "",
-		"Class": "",
-		"Mana": "",
-		"Description": "",
-		"Picture": ""
-	}
-
+window.Card = Backbone.Model.extend({
+	urlRoot: "/cards"
 });
 
-window.Cards = new Backbone.Collection.extend({
+window.Cards = Backbone.Collection.extend({
 	model: Card,
 	url: "/cards"
 });
