@@ -15,15 +15,16 @@ var AppRouter = Backbone.Router.extend({
 		var cardsList = new Cards();
 		var hero = heroes.charAt(0).toUpperCase() + heroes.slice(1);
 		cardsList.fetch({success: function(){
-			var filteredCards = cardsList.where({Class:hero, Class:"Any"});
+			filteredCards = cardsList.where({Class: hero}).concat(cardsList.where({Class: "Any"}));
+			console.log("FilteredCards:", filteredCards);
+			this.deckbuild = new Deckbuilder({model:filteredCards});
+			$('#content').html(this.deckbuild.el);
 		}});
-		this.deckbuild = new Deckbuilder();
-		$('#content').html(this.deckbuild.el);
 	}
 
 });
 
-utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield'], function() {
+utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
