@@ -4,7 +4,6 @@ window.Deckbuilder = Backbone.View.extend({
     },
 
     render:function () {
-    	console.log(this.model);
         $(this.el).html(this.template());
         this.search = new Searchfield({model: this.model});
         cardselectView = new CardSelect({model: this.model});

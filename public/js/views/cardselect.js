@@ -38,12 +38,15 @@ window.CardSelect = Backbone.View.extend({
         this.render();
     },
     render:function () {
+        this.model.comparator = function (card){
+            return card.get("Mana");
+        };
     	var cardlist = this.model.filter(function(each){
             return each;
         });
     	var len = cardlist.length;
         $(this.el).append('<ul class ="thumbnails"></ul>');
-        for (var i = page*8; i < page*8 + 8; i++){
+        for (var i = page*8; (i < page*8 + 8) && (i < len); i++){
         	$('.thumbnails', this.el).append(new CardItem({model: cardlist[i]}).render().el);
         }
         return this;
