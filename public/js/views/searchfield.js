@@ -7,7 +7,6 @@ window.Searchfield = Backbone.View.extend({
 		"keyup .input-lg": "searchtext"
 	},
 	initialize:function () {
-		this.render();
 		classname = "both";
 		mana = "all";
 		text = "";

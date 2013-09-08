@@ -22,7 +22,7 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem'], function() {
+utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert'], function() {
 	app = new AppRouter();
 	Backbone.history.start();
 });

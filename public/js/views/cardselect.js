@@ -54,11 +54,32 @@ window.CardSelect = Backbone.View.extend({
 });
 
 window.CardItem = Backbone.View.extend({
-    className:"",
-
 	initialize: function(){
 		this.render();
 	},
+    events: {
+        "click .thumbnail":"add"
+    },
+    add : function(ev){
+        if (deck.collection.length == 30){
+            this.alertmessage("You already have 30 cards in your deck");
+        };
+        if (deck.collection.where({Name:this.model.get("Name"), Rarity: "Legendary"}).length == 1){
+            return;
+        };
+        if (deck.collection.where({Name:this.model.get("Name")}).length < 2){
+            deck.collection.add(this.model.toJSON());
+        }
+        else{
+            this.alertmessage("You already have 2 cards of this type");
+        };
+        deck.render();
+    },
+    alertmessage: function(messages){
+        console.log("CardSelect:",messages);
+        alert = new Alert({message: messages});
+        window.$(".top").html(alert.render().el);
+    },
 	render: function () {
         $(this.el).html(this.template(this.model.toJSON()));
         return this;
