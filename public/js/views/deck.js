@@ -1,14 +1,24 @@
 window.DeckTemplate = Backbone.View.extend({
 	className: "container",
     initialize:function () {
-    	this.collection = new Backbone.Collection([],{model: Card});
+    	this.collection = new Deck();
     },
 
     render:function () {
         $(this.el).html(this.template());
-        console.log(this.collection);
+        var doubles = {};
         this.collection.each(function(item){
-        	$('.deck', this.el).append(new DeckItem({model: item}).render().el);
+            var name = item.get("Name");
+            if (deck.collection.where({Name: name}).length == 2) {
+                if (!doubles[name]){
+                    $('.deck', this.el).append(new DeckItem({model: item}).render().twocards().el);
+                    doubles[name] = "1";
+                }
+            }
+            else{
+            $('.deck', this.el).append(new DeckItem({model: item}).render().el);
+            console.log("Hi");
+            }
         });
         return this;
     }
@@ -18,6 +28,10 @@ window.DeckTemplate = Backbone.View.extend({
 window.DeckItem = Backbone.View.extend({
 	render: function () {
         $(this.el).html(this.template(this.model.toJSON()));
+        return this;
+    },
+    twocards: function(){
+        $('h5',this.el).append(" x2");
         return this;
     }
 });

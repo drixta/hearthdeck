@@ -1,13 +1,6 @@
-window.Deck = Backbone.Model.extend({
+window.Deck = Backbone.Collection.extend({
 	urlRoot: '/decks',
-	idAttribute: '_id'
-	defaults: {
-		_id: null,
-		name: "",
-		classname:"",
-		description:"",
-		cards: []
-	} 
+	idAttribute: '_id',
 });
 
 window.Decks = Backbone.Collection.extend({
