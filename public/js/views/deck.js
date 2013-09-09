@@ -1,7 +1,7 @@
 window.DeckTemplate = Backbone.View.extend({
 	className: "container",
     initialize:function () {
-    	this.model = new Deck();
+    	this.collection = new Deck();
     },
 
     render:function () {
