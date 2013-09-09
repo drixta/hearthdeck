@@ -29,6 +29,6 @@ app.put('/decks/:id', decks.updatedeck);
 app.delete('/decks/:id', decks.deletedeck);
 // Launch server
 
-app.listen(process.env.PORT || 5000,'127.0.0.1', function(){
+app.listen(process.env.PORT || CONFIG.port, function(){
 	console.log("Server running on port " + app.get('port'));
 });
