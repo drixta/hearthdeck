@@ -1,5 +1,9 @@
 window.CardSelect = Backbone.View.extend({
     initialize:function () {
+        this.model.comparator = function (card){
+            return card.get("Mana");
+        };
+        this.model.sort();
         var cardlist = this.model.filter(function(each){
             return each;
         });
@@ -40,7 +44,7 @@ window.CardSelect = Backbone.View.extend({
     render:function () {
         this.model.comparator = function (card){
             return card.get("Mana");
-        };
+        };        
     	var cardlist = this.model.filter(function(each){
             return each;
         });

@@ -47,7 +47,7 @@ window.Searchfield = Backbone.View.extend({
 					return card.has("HP");
 				}
 				if (text == "equipment" || text == "equipments" || text=="weapon" || text=="weapons"){
-					return card.has("Durability");
+					return card.has("Durability") || (card.get("Description").toLowerCase().indexOf(text) != -1);
 				}
 				return card.get("Name").toLowerCase().indexOf(text) != -1 || card.get("Description").toLowerCase().indexOf(text) != -1 || card.get("Rarity").toLowerCase().indexOf(text) != -1;
 			});

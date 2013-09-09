@@ -28,6 +28,6 @@ app.put('/decks/:id', decks.updatedeck);
 app.delete('/decks/:id', decks.deletedeck);
 // Launch server
 
-app.listen(process.env.PORT || CONFIG.port, function(){
+app.listen(process.env.PORT || 3000, function(){  //CONFIG.port
 	console.log("Server running on port " + 3000);
 });
