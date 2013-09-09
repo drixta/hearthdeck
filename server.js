@@ -6,7 +6,6 @@ var app = express();
 // Config
 
 app.configure(function () {
-  app.set('port', process.env.PORT || 3000);
   app.use(express.bodyParser());
   app.use(express.static(__dirname + '/public'));
 });
@@ -29,6 +28,6 @@ app.put('/decks/:id', decks.updatedeck);
 app.delete('/decks/:id', decks.deletedeck);
 // Launch server
 
-app.listen(process.env.PORT || CONFIG.port, function(){
-	console.log("Server running on port " + app.get('port'));
+app.listen(process.env.PORT || 3000, function(){
+	console.log("Server running on port " + 3000);
 });

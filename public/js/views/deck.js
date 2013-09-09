@@ -6,6 +6,9 @@ window.DeckTemplate = Backbone.View.extend({
 
     render:function () {
         $(this.el).html(this.template());
+        this.collection.comparator = function (card){
+            return card.get("Mana");
+        };
         var doubles = {};
         this.collection.each(function(item){
             var name = item.get("Name");
