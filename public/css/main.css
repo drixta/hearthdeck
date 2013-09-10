@@ -1,3 +1,6 @@
-.jumbotron {
+.jumbotron, .center {
 	margin:auto;
+}
+.center{
+	width:25%;
 }

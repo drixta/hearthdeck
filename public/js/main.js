@@ -18,11 +18,17 @@ var AppRouter = Backbone.Router.extend({
 			this.deckbuild = new Deckbuilder({model:filteredCards});
 			$('#content').html(this.deckbuild.el);
 		}});
+	},
+	deckviewer: function(id){
+		var deck = new Deck({_id:id});
+		deck.fetch({success: function(){
+            $("#content").html(new DeckView({model: deck}).el);
+        }});
 	}
 
 });
 
-utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert'], function() {
+utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert','DeckView'], function() {
 	app = new AppRouter();
 	Backbone.history.start();
 });

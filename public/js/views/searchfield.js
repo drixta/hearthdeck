@@ -4,7 +4,7 @@ window.Searchfield = Backbone.View.extend({
 	events: {
 		"click 	.classname": "pickclass",
 		"click 	.mana": "pickmana",
-		"keyup .input-lg": "searchtext"
+		"keyup .searchtext": "searchtext"
 	},
 	initialize:function () {
 		classname = "both";
