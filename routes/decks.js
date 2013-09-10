@@ -1,16 +1,19 @@
 var mongo = require('mongodb');
-
+/*
 var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
-
-mongo.connect(process.env.MONGOLAB_URI, {}, function(error, db){
-    db.addListener("error", function(error){
-        console.log("Error connecting to MongoLab");
-});
-
+    uri = process.env.MONGOLAB_URI;
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('deckdb', server, {safe: true});
+*/
+
+var mongo = require('mongodb');
+
+var mongoUri = process.env.MONGOLAB_URI; 
+
+mongo.Db.connect(mongoUri, function (err, db) {
+
 
 db.open(function(err, db) {
     if(!err) {
@@ -106,3 +109,4 @@ var populateDB = function() {
     });
 
 };
+});
