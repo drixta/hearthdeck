@@ -4,6 +4,11 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
+mongo.connect(process.env.MONGOLAB_URI, {}, function(error, db){
+    db.addListener("error", function(error){
+        console.log("Error connecting to MongoLab");
+});
+
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('deckdb', server, {safe: true});
 
