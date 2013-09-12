@@ -1,4 +1,4 @@
-var mongo = require('mongodb');
+var mongo = require('mongoskin');
 /*var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
@@ -7,8 +7,8 @@ var mongo = require('mongodb');
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('deckdb', server, {safe: true});
 */
-var mongoUri = process.env.MONGOHQ_URL;
-mongo.Db.connect(mongoUri, function (err, db) {
+var db = mongo.db(process.env.MONGOHQ_URL);
+/*mongo.Db.connect(mongoUri, function (err, db) {
     if(!err) {
         console.log("Connected to 'deckdb' database");
         db.collection('decks', {safe:true}, function(err, collection) {
@@ -18,8 +18,8 @@ mongo.Db.connect(mongoUri, function (err, db) {
             }
         });
     }
-});
-/*
+});*/
+
 exports.findById = function(req, res) {
     var id = req.params.id;
     console.log('Retrieving deck: ' + id);
@@ -86,7 +86,7 @@ exports.deletedeck = function(req, res) {
         });
     });
 }
-*/
+
 var populateDB = function() {
 
     var decks = [
