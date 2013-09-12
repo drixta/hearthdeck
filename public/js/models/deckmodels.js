@@ -1,5 +1,5 @@
 window.Deck = Backbone.Model.extend({
-	urlRoot: '/decks',
+	urlRoot: '/api/decks',
 	idAttribute: '_id',
 	name: "Your deck",
 	description: "Enter description here!",
@@ -8,5 +8,5 @@ window.Deck = Backbone.Model.extend({
 
 window.Decks = Backbone.Collection.extend({
 	model: Deck,
-	url: "/decks"
+	url: "/api/decks"
 });
