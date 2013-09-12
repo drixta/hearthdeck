@@ -26,5 +26,14 @@ window.DeckView = Backbone.View.extend({
         });
 
     }
-
 });
+window.DeckItem = Backbone.View.extend({
+    render: function () {
+        $(this.el).html(this.template(this.model.toJSON()));
+        return this;
+    },
+    twocards: function(){
+        $('h5',this.el).append(" x2");
+        return this;
+    }    
+})

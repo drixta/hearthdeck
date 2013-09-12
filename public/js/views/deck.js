@@ -37,12 +37,12 @@ window.DeckTemplate = Backbone.View.extend({
             var name = item.get("Name");
             if (cardDeck.where({Name: name}).length == 2) {
                 if (!doubles[name]){
-                    $('.deck', this.el).append(new DeckItem({model: item}).render().twocards().el);
+                    $('.deck', this.el).append(new DeckItemTemplate({model: item}).render().twocards().el);
                     doubles[name] = "1";
                 }
             }
             else{
-            $('.deck', this.el).append(new DeckItem({model: item}).render().el);
+            $('.deck', this.el).append(new DeckItemTemplate({model: item}).render().el);
             }
         });
         return this;
@@ -50,13 +50,12 @@ window.DeckTemplate = Backbone.View.extend({
 
 });
 
-window.DeckItem = Backbone.View.extend({
-	render: function () {
-        $(this.el).html(this.template(this.model.toJSON()));
-        return this;
+window.DeckItemTemplate = DeckItem.extend({
+    events: {
+        "click .label": "removecard";
     },
-    twocards: function(){
-        $('h5',this.el).append(" x2");
-        return this;
+	removecard: function(){
+        deck.model.deck.remove(this.model.toJSON());
+        deck.render();
     }
 });
