@@ -2,18 +2,6 @@ var mongo = require('mongoskin');
 
 var db = mongo.db(process.env.MONGOHQ_URL);
 
-db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'deckdb' database");
-        db.collection('decks', {safe:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'decks' collection doesn't exist.");
-                populateDB();
-            }
-        });
-    }
-});
-
 exports.findById = function(req, res) {
     var id = req.params.id;
     console.log('Retrieving deck: ' + id);
