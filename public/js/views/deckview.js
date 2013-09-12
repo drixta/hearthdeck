@@ -1,12 +1,13 @@
 window.DeckView = Backbone.View.extend({
     initialize:function () {
         this.render();
+        console.log(this.model);
     },
 
     render:function () {
         var self=this;
         $(this.el).html(this.template(this.model.toJSON()));
-        console.log(this.model.attributes.cards);
+        console.log(this.model.attributes);
         var doubles = {};
         deckcollection = new Backbone.Collection(this.model.attributes.cards);
         deckcollection.each(function(item){
@@ -33,7 +34,7 @@ window.DeckItem = Backbone.View.extend({
         return this;
     },
     twocards: function(){
-        $('h5',this.el).append(" x2");
+        $('.label',this.el).append(" x2");
         return this;
     }    
 })

@@ -22,13 +22,14 @@ var AppRouter = Backbone.Router.extend({
 	deckviewer: function(id){
 		var deck = new Deck({_id:id});
 		deck.fetch({success: function(){
+			console.log("This model", deck.toJSON());
             $("#content").html(new DeckView({model: deck}).el);
         }});
 	}
 
 });
 
-utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert','DeckView'], function() {
+utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert','DeckView','DeckItemTemplate'], function() {
 	app = new AppRouter();
 	Backbone.history.start();
 });

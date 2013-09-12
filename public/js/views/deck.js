@@ -13,10 +13,11 @@ window.DeckTemplate = Backbone.View.extend({
         var name = $('.name', this.el).val();
         console.log("trying to save");
         model.save({name: name, className: hero,description: "",cards:model.deck},
-            {success: function(){
+            {success: function(model,res){
             console.log("Saved");
-            console.log(model);
-            app.navigate("/#decks/" + model.id, {trigger:true});
+            console.log("Response",res[0]);
+            console.log(model.id);
+            app.navigate("/decks/" + res[0]._id, {trigger:true});
             },
             error: function(){
             console.log("Failed miserably");
@@ -39,6 +40,7 @@ window.DeckTemplate = Backbone.View.extend({
                 if (!doubles[name]){
                     $('.deck', this.el).append(new DeckItemTemplate({model: item}).render().twocards().el);
                     doubles[name] = "1";
+                    console.log(item);
                 }
             }
             else{
@@ -51,11 +53,13 @@ window.DeckTemplate = Backbone.View.extend({
 });
 
 window.DeckItemTemplate = DeckItem.extend({
+    className: "removable",
     events: {
         "click .label": "removecard"
     },
 	removecard: function(){
-        deck.model.deck.remove(this.model.toJSON());
+        console.log(this.model);
+        deck.model.deck.remove(this.model);
         deck.render();
     }
-});
+}); 
