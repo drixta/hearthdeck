@@ -52,7 +52,7 @@ window.DeckTemplate = Backbone.View.extend({
 
 window.DeckItemTemplate = DeckItem.extend({
     events: {
-        "click .label": "removecard";
+        "click .label": "removecard"
     },
 	removecard: function(){
         deck.model.deck.remove(this.model.toJSON());
