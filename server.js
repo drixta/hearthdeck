@@ -21,7 +21,7 @@ app.get('/cards/:heroclass', cards.findAllClasscards);
 */
 
 decks = require('./routes/decks');
-app.get('/decks', decks.findAll);
+app.get('/decks', decks.findAll);		
 app.get('/decks/:id', decks.findById);
 app.post('/decks', decks.adddeck);
 app.put('/decks/:id', decks.updatedeck);
