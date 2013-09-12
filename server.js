@@ -23,7 +23,7 @@ app.param('decks', function(req, res, next, decks){
 
 var cardFile = fs.readFileSync('./routes/cards.json','utf8');
 var schema = JSON.parse(cardFile);
-app.get('/cards', function(req,res){
+app.get('/api/cards', function(req,res){
 	res.send(schema);
 });
 /* Find type of cards

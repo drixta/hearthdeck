@@ -1,8 +1,8 @@
 window.Card = Backbone.Model.extend({
-	urlRoot: "/cards"
+	urlRoot: "/api/cards"
 });
 
 window.Cards = Backbone.Collection.extend({
 	model: Card,
-	url: "/cards"
+	url: "/api/cards"
 });
