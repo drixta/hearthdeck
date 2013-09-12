@@ -2,6 +2,7 @@ window.DeckTemplate = Backbone.View.extend({
 	className: "container",
     initialize:function () {
     	this.model = new Deck();
+        this.render();
     },
     events: {
         "click .save": "savedeck",
@@ -15,7 +16,7 @@ window.DeckTemplate = Backbone.View.extend({
             {success: function(){
             console.log("Saved");
             console.log(model);
-            app.navigate("/decks/" + model.id, {trigger:true});
+            app.navigate("/#decks/" + model.id, {trigger:true});
             },
             error: function(){
             console.log("Failed miserably");
