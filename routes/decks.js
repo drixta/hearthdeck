@@ -1,6 +1,7 @@
 var mongo = require('mongoskin');
+var mongoUri = process.env.MONGOLAB_URI||process.env.MONGOHQ_URL||'mongodb://localhost/mydb';
 
-var db = mongo.db('mongodb://drixta:632b5ac54d4ad5c2fd1d5238d51757f6@paulo.mongohq.com:10029/app18021182');
+var db = mongo.db(mongoUri, {safe:true});
 
 exports.findById = function(req, res) {
     var id = req.params.id;
