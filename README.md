@@ -5,6 +5,8 @@ Hearthstone deck builder
 
 This is a work in progress web app. Hearthdeck uses mongodb for database, express.js for backend and backbone.js for front-end.
 
+Heroku app is at: hearthapp.herokuapp.com  . Currently running at 1 web dyno so it might take a while to load the site.
+
 ##What needs to be done
 
 ###Deckbuilder: 
