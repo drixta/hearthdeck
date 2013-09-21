@@ -1,7 +1,30 @@
 var mongo = require('mongoskin');
+<<<<<<< HEAD
 var mongoUri = process.env.MONGOLAB_URI||process.env.MONGOHQ_URL||'mongodb://localhost/mydb';
 
 var db = mongo.db(mongoUri, {safe:true});
+=======
+/*var Server = mongo.Server,
+    Db = mongo.Db,
+    BSON = mongo.BSONPure;
+    uri = process.env.MONGOLAB_URI;
+
+var server = new Server('localhost', 27017, {auto_reconnect: true});
+db = new Db('deckdb', server, {safe: true});
+*/
+var db = mongo.db(process.env.MONGOHQ_URL);
+/*mongo.Db.connect(mongoUri, function (err, db) {
+    if(!err) {
+        console.log("Connected to 'deckdb' database");
+        db.collection('decks', {safe:true}, function(err, collection) {
+            if (err) {
+                console.log("The 'decks' collection doesn't exist.");
+                populateDB();
+            }
+        });
+    }
+});*/
+>>>>>>> befe4eb0de12a197622d769d83d6be68e12a11a8
 
 exports.findById = function(req, res) {
     var id = req.params.id;
