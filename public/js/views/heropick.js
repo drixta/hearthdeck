@@ -1,5 +1,5 @@
 window.HeroPick = Backbone.View.extend({
-	className: "container jumbotron",
+	className: "container heropick",
     initialize:function () {
         this.render();
     },
