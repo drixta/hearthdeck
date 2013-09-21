@@ -4,8 +4,10 @@
 }
 html{
 	height: 100%;
+	font-family: bel, san-serif;
 }
 body{
+	font-family: bel, san-serif;
 	height:100%;
 	background-color: transparent;
 	background: url('../picture/widgets/body.jpg');
@@ -23,19 +25,33 @@ h1,h2,h3,h4,h5,h6{
 }
 a{
 	text-align: center;
+    cursor: pointer;
+
+}
+label{
+	text-decoration: none;
 }
 img{
-	height:100px;
+	height:120px;
+}
+.searchdeck{
+	height: 20%;
+}
+.heropick{
+	height: 80%;
+}
+.navbar-form{
+	text-align: center;
 }
 .row{
 	width: 60%;
 	margin: 0 auto;
 }
+.search{
+	margin: 0 auto;
+}
 .container{
 	height: 100%;
-}
-.heropick{
-	height:100%;
 }
 .jumbotron, .center {
 	margin:auto;
@@ -56,4 +72,10 @@ img{
 }
 #herotitle{
 	-webkit-text-stroke: 0.6px #fff;
+	padding: 20px;
+}
+.cardsearch{
+	margin: auto;
+	padding-top: 20px;
+	text-align: center;
 }

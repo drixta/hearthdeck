@@ -7,8 +7,11 @@ var AppRouter = Backbone.Router.extend({
 	home: function(){
 		if (!this.homeView) {
 			this.homeView = new HeroPick();
+			this.search = new SearchDeck();
 		}
-		$('#content').html(this.homeView.el);
+		$('#content').empty();
+		$('#content').append(this.search.el);
+		$('#content').append(this.homeView.el);
 	},
 	deckbuilder: function(heroes){
 		var cardsList = new Cards();
@@ -29,7 +32,7 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-utils.loadTemplate(['HeroPick','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert','DeckView','DeckItemTemplate'], function() {
+utils.loadTemplate(['HeroPick','SearchDeck','Deckbuilder','Searchfield','CardItem','DeckTemplate','DeckItem','Alert','DeckView','DeckItemTemplate'], function() {
 	app = new AppRouter();
 	Backbone.history.start();
 });

@@ -2,7 +2,8 @@ window.Deckbuilder = Backbone.View.extend({
     initialize:function () {
         this.render();
     },
-
+    className: "container",
+    
     render:function () {
         $(this.el).html(this.template());
         this.search = new Searchfield({model: this.model});

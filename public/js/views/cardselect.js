@@ -10,7 +10,7 @@ window.CardSelect = Backbone.View.extend({
         this.model = new Cards(cardlist);
         page = 0;
         maxpage = (this.model.length)/8;
-        $(this.el).append('<button class="prev">Prev</button><button class="next">Next</button>');
+        $(this.el).append('<ul class="pager"><li><a class="prev">&lt;&lt;</a></li><li><a class="next">&gt;&gt;</a></li></ul>');
     },
 
 

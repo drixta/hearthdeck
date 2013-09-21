@@ -1,6 +1,6 @@
 window.Searchfield = Backbone.View.extend({
 	tagName: "form",
-	className: "input-group",
+	className: "input-group cardsearch",
 	events: {
 		"click 	.classname": "pickclass",
 		"click 	.mana": "pickmana",

@@ -1,5 +1,5 @@
-window.HeroPick = Backbone.View.extend({
-	className: "heropick",
+window.SearchDeck = Backbone.View.extend({
+	className: "jumbotron searchdeck",
     initialize:function () {
         this.render();
     },
