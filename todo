@@ -1,0 +1,13 @@
+Deckbuilder:
+
+Add cards count exp 30/30
+Change the save function to commit as POST request once
+Lots of design adjustments
+Add missing cards
+Add description editor
+Deckviewer:
+
+Add Deck search function
+Add Deck search view in the front-page
+Add Description viewer
+Design adjustments

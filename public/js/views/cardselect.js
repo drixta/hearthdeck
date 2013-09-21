@@ -67,7 +67,7 @@ window.CardItem = Backbone.View.extend({
     add : function(ev){
         var carddeck = deck.model.deck;
         if (carddeck.length == 30){
-            this.alertmessage("You already have 30 cards in your deck");
+            this.alertmessage("You already have <b>30</b> cards in your deck");
             return;
         };
         if (carddeck.where({Name:this.model.get("Name"), Rarity: "Legendary"}).length == 1){
@@ -77,13 +77,16 @@ window.CardItem = Backbone.View.extend({
             carddeck.add(this.model.toJSON());
         }
         else{
-            this.alertmessage("You already have 2 cards of this type");
+            this.alertmessage("You already have <b>2</b> cards of this type");
         };
         deck.render();
     },
     alertmessage: function(messages){
+        container = window.$(".top");
+        container.fadeIn(0)
         alert = new Alert({message: messages});
-        window.$(".top").html(alert.render().el);
+        container.html(alert.render().el);
+        setTimeout("container.fadeOut(400)",2000);
     },
 	render: function () {
         $(this.el).html(this.template(this.model.toJSON()));

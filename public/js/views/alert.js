@@ -1,5 +1,5 @@
 window.Alert = Backbone.View.extend({
-	className: "alert alert-warning close",
+	className: "alert alert-danger",
     initialize:function () {
         this.render();
     },
