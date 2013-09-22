@@ -87,6 +87,8 @@ window.CardItem = Backbone.View.extend({
         else{
             this.alertmessage("You already have <b>2</b> cards of this type");
         };
+        window.$('#cardcount').html(carddeck.length+"/30");
+        console.log(window.$('#cardcount').html());
         deck.render();
     },
     alertmessage: function(messages){

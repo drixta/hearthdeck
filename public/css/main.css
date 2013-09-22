@@ -64,7 +64,7 @@ label{
 	cursor: hand;
 }
 .top{
-	position: absolute;
+	position: fixed;
 	z-index: 9999;
 	margin: auto;
 	width:100%;
@@ -89,4 +89,11 @@ label{
     overflow-y: auto;
 }
 .thumbnail{
+}
+.classhead{
+	text-align: center;
+	margin-top: 20px;
+}
+.name{
+	margin-top: 10px;
 }
