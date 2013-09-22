@@ -16,9 +16,17 @@ window.CardSelect = Backbone.View.extend({
 
     events:{
         "click .next": "paginext",
-        "click .prev": "pagiprev"
+        "click .prev": "pagiprev",
+        "mouseover .thumbnail": "opacity",
+        "mouseout .thumbnails": "reop"
     },
-
+    opacity: function(ev){
+        $('.thumbnail', this.el).css('opacity',0.4);
+        $(ev.currentTarget).css('opacity',1);
+    },
+    reop: function(){
+        $('.thumbnail',this.el).css('opacity',1);
+    },
     paginext: function(){
         if (page < (maxpage-1)){
             page++;
