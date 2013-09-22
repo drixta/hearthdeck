@@ -63,3 +63,5 @@ window.DeckItemTemplate = DeckItem.extend({
         deck.render();
     }
 }); 
+
+$(".label").popover({title: "test", html:true});

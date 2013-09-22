@@ -30,7 +30,10 @@ window.DeckView = Backbone.View.extend({
 });
 window.DeckItem = Backbone.View.extend({
     render: function () {
+        console.log(this.model.toJSON().Picture);
+        img = '<img width="198" src="picture/'+this.model.toJSON().Picture+ '">';
         $(this.el).html(this.template(this.model.toJSON()));
+        $(this.el).find(".label").popover({content:img, html:true, trigger:'hover'});
         return this;
     },
     twocards: function(){

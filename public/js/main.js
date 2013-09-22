@@ -39,4 +39,4 @@ utils.loadTemplate(['HeroPick','SearchDeck','Deckbuilder','Searchfield','CardIte
 
 
 $('.btn-group').button();
-$('.carousel').carousel()
+$('.label').tooltip();
