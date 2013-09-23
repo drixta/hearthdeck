@@ -27,11 +27,14 @@ window.DeckItem = Backbone.View.extend({
     render: function () {
         img = '<img width="198" src="picture/'+this.model.toJSON().Picture+ '">';
         $(this.el).html(this.template(this.model.toJSON()));
-        $(this.el).find(".label").popover({content:img, html:true, trigger:'hover'});
+        if (this.model.get("Mana") > 9){
+            $('.manaitem',this.el).css("margin-left","0.2em");
+        }
+        $(this.el).find(".deckitem").popover({content:img, html:true, trigger:'hover'});
         return this;
     },
     twocards: function(){
-        $('.label',this.el).append(" x2");
+        $('.deckitem',this.el).css("background-image","url('../picture/widgets/deckcard2.gif')");
         return this;
     }    
 })

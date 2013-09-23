@@ -34,7 +34,6 @@ window.DeckTemplate = Backbone.View.extend({
             else {
                 manadis[item.get("Mana")]++;
             }
-            console.log(manadis);
         });
         var canvas = '<canvas id="manaChart" width="200" height="100"></canvas>';
         $(this.el).find(".classhead").popover({content:canvas, title: "Mana Distribution",trigger:"hover", placement:"left",html:true});
@@ -81,6 +80,7 @@ window.DeckTemplate = Backbone.View.extend({
         $(this.el).html(this.template(this.model));
         this.showchart();
         cardDeck.comparator = function (card){
+            console.log(card.get("Mana"));
             return card.get("Mana");
         };
         var doubles = {};
