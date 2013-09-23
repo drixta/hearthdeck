@@ -5,7 +5,6 @@ window.Alert = Backbone.View.extend({
     },
 
     render:function () {
-    	console.log(this.options.message);
         $(this.el).html(this.template());
         $(this.el).append(this.options.message);
         return this;
