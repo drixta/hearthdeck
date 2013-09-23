@@ -30,17 +30,17 @@ window.CardSelect = Backbone.View.extend({
     paginext: function(){
         if (page < (maxpage-1)){
             page++;
+            $('.thumbnails', this.el).remove();
+            this.render();
         }
-        $('.thumbnails', this.el).remove();
-        this.render();
     },
 
     pagiprev: function(){
         if (page > 0){
             page--;
+            $('.thumbnails', this.el).remove();
+            this.render();
         }
-        $('.thumbnails', this.el).remove();
-        this.render();
     },
 
     refresh: function(){
