@@ -104,7 +104,7 @@ window.DeckTemplate = Backbone.View.extend({
 window.DeckItemTemplate = DeckItem.extend({
     className: "removable",
     events: {
-        "click .label": "removecard"
+        "click .deckitem": "removecard"
     },
 	removecard: function(){
         deck.model.deck.remove(this.model);

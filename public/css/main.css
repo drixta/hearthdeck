@@ -165,7 +165,6 @@ label{
 }
 .deckitem {
 	color:white;
-	margin: 0 auto;
 	background-image: url('../picture/widgets/deckcard.gif');
 	background-repeat: no-repeat;
 	width: 191px;
@@ -194,5 +193,11 @@ label{
 	display: inline-block;
 }
 .nametitle{
-	background-color: #bdc3c7;
+	padding: 2em;
+	font-size: 1.5em;
+}
+.analytics{
+	background :white;
+	font-size: 3em;
+	text-align: center;
 }
