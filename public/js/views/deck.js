@@ -60,7 +60,11 @@ window.DeckTemplate = Backbone.View.extend({
             this.alertmessage("Please fill in the name of your deck");
             return false
         }
-        if (this.model.deck.length == 30 && $('.name', this.el).val()){
+        if ($('.name', this.el).val().length > 30){
+            this.alertmessage("Cannot have more than 30 characters in your deck's name");
+            return false
+        }
+        if (this.model.deck.length == 30 && $('.name', this.el).val() && $('.name', this.el).val().length <= 30){
             return true;
         }
     },

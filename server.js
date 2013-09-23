@@ -15,17 +15,26 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.static(__dirname + '/public'));
 });
+var cardFile = fs.readFileSync('./routes/cards.json','utf8');
+var schema = JSON.parse(cardFile);
+app.get('/api/cards', function(req,res){
+  res.send(schema);
+});
 
 app.param('decks', function(req, res, next, decks){
   req.collection = db.collection(decks)
   return next()
 })
 
-var cardFile = fs.readFileSync('./routes/cards.json','utf8');
-var schema = JSON.parse(cardFile);
-app.get('/api/cards', function(req,res){
-	res.send(schema);
+
+app.get('/ajax/:decks',function(req,res){
+  var regex = new RegExp(".*"+req.query.q+".*", 'i');
+  req.collection.find({"name": regex}).toArray(function(e, results){
+    if (e) return next(e)
+    res.send(results)
+  });
 });
+
 /* Find type of cards
 app.get('/cards/minions', cards.findAllMinions);
 app.get('/cards/spells', cards.findAllSpells);

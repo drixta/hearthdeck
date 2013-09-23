@@ -3,6 +3,7 @@ var AppRouter = Backbone.Router.extend({
 		"": "home",
 		"build/:heroes": "deckbuilder",
 		"decks/:id": "deckviewer",
+		"search?q=:query": "search"
 	},
 	home: function(){
 		if (!this.homeView) {
@@ -12,6 +13,9 @@ var AppRouter = Backbone.Router.extend({
 		$('#content').empty();
 		$('#content').append(this.search.el);
 		$('#content').append(this.homeView.el);
+	},
+	search: function(q){
+		
 	},
 	deckbuilder: function(heroes){
 		var cardsList = new Cards();
